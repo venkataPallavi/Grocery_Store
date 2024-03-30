@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+*{
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+.login{
+	height: 100%;
+	width: 100%;
+	background-image: url("grocery store.jpg");
+	background-position: center;
+	background-size: cover;
+	position: absolute;
+}
+.box{
+	width: 380px;
+	height: 720px;
+	position: relative;
+	margin: 6% auto;
+	background: #fff;
+	padding: 5px;
+	overflow: hidden;
+}
+.button{
+	width: 225px;
+	margin: 35px auto;
+	position: relative;
+	box-shadow: 0 0 20px 9px #ff61241f;
+	border-radius: 30px;
+}
+.btn{
+	padding : 10px 30px;
+	cursor: pointer;
+	background: transparent;
+	outline : none;
+	border: 0;
+	position: relative;
+}
+#BTN{
+	top:0;
+	left:0;
+	position: absolute;
+	width: 110px;
+	height: 100%;
+	background: linear-gradient(to right,#ff105f,#ffad06);
+	border-radius: 30px;
+	transition: .5s;
+}
+
+.inputs{
+	top:180px;
+	position:absolute;
+	width:280px;
+	transition:.5s;
+}
+.field{
+	width:100%;
+	padding:10px 0;
+	margin : 5px 0;
+	border-left: 0 ;
+	border-top: 0;
+	border-right:0;
+	border-bottom: 1px solid #999;
+	outline: none;
+	background: transparent;
+}
+
+.sb-btn{
+	width:85%;
+	padding: 10px 30px;
+	cursor: pointer;
+	display: block;
+	margin:auto;
+	background: linear-gradient(to right,#ff105f,#ffad06);
+	border-radius:30px;
+	outline:none;
+	
+}
+
+.ch-box{
+	margin:30px 10px 30px 0;
+}
+
+span{
+	color:#777;
+	font-size: 12px;
+	bottom:68px;
+	position: absolute;
+}
+#log{
+	left: 50px;
+}
+#reg{
+	left: 450px;
+}
+
+</style>
+<script
+src="https://code.jquery.com/jquery-3.6.1.min.js"
+integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+crossorigin="anonymous"></script>
+
+<script>
+	$(function(){
+		$('#header').load('header.html');
+		$('#Footer').load('Footer.html');
+	});
+
+
+</script>
+
+</head>
+<body>
+
+<div id = "header"></div> 
+
+	<div class="login">
+	<h1 style="text-align:center;margin: 35px ; color:red;" >Welcome To Our Store</h1>
+		<div class = "box">
+			<div class="button">
+				<div id="BTN"></div>
+				<button type="button" class = "btn" onclick="login()">Log In</button>
+				<button type="button" class = "btn" onclick="register()">Register</button>
+				
+			</div>
+			
+			<form onsubmit = "validation()" id="log"class="inputs" action = "log" method = "post">
+			
+			<input type="text" id = "us" class="field" name="usname" placeholder="User name" >
+			<input type="password" id = "ps" class="field" name="passwd" placeholder="Enter Password" >
+			<input type="checkbox" class = "ch-box"><span>Remember Password</span>
+			<button type="submit"  class="sb-btn" >Log in</button>
+			</form>
+			
+			<form onsubmit = "validation1()" id="reg" class="inputs" action = "reg" method = "post">
+			
+			<label for="User_type">User_type:</label>
+			  <select name="User_type" id="User_type">
+			    <option value=1>Shopkeeper</option>
+			    <option value=2>Buyer</option>
+			    
+			    
+			  </select>
+			<input type="text" id = "u"class="field" name = "uname" placeholder="User name" >
+			<input type="email" id = "e" class="field" name= "eid" placeholder="Email Id" >
+			<input type="password" id = "ep" class="field" name = "pass" placeholder="Enter Password" >
+		 	<input type="text" id = "f" class="field" name="fname" placeholder="First name" >
+		 	<input type="text" id = "l" class="field" name="lname" placeholder="Last name" >
+		 	<input type="text" id = "p" class="field" name="ph" placeholder="Ph.No:123-456-7890" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" >
+		 	ex : 123-456-7890
+		 	<input type="text" id = "a" class="field" name="add" placeholder="address" >
+		 	<input type="number" id = "pi" class="field" name="pin" placeholder="pincode" >		 	
+		 	
+		 	
+			<input type="checkbox" class = "ch-box"><span>I agree to the terms & conditions</span>
+			<button type="submit"  class="sb-btn">Register</button>
+			</form>
+		</div>
+	</div>
+	
+	<script> 
+	var x=document.getElementById("log");
+	var y=document.getElementById("reg");
+	var z=document.getElementById("BTN");
+	
+	function register(){
+		x.style.left="-400px";
+		y.style.left="50px";
+		z.style.left="110px";
+		
+		
+	}
+
+	function login(){
+		x.style.left="50px";
+		y.style.left="450px";
+		z.style.left="0px";
+		
+		
+	}
+	
+	function validation(){
+		
+		var valid = true;
+		let a = document.getElementById("us").value;
+		let b= document.getElementById("ps").value;
+		
+		if(a=="" ){
+			alert("please enter your User Name");
+			return false;
+		}
+
+		if(b==""){
+			alert("please enter your Password");
+			return false;
+		}	
+		return true;
+	}
+		
+		function validation1(){
+
+		let c = document.getElementById("u").value;
+		let d= document.getElementById("e").value;
+		let e = document.getElementById("ep").value;
+		let f = document.getElementById("f").value;
+		let g = document.getElementById("l").value;
+		let h = document.getElementById("p").value;
+		let i = document.getElementById("a").value;
+		let j = document.getElementById("pi").value;
+		
+		
+		
+
+		if(c==""){
+			alert("please enter your User Name");
+			return false;
+		}
+		if(d==""){
+			alert("please enter your Email-id");
+			return false;
+		}
+		if(e==""){
+			alert("please enter your Password");
+			return false;
+		}
+		if(f==""){
+			alert("please enter your First Name");
+			return false;
+		}
+		if(g==""){
+			alert("please enter your Last Name");
+			return false;
+		}
+		if(h==""){
+			alert("please enter your Phone number");
+			return false;
+		}
+		if(i==""){
+			alert("please enter your Address");
+			return false;
+		}
+		if(j==""){
+			alert("please enter your Pincode");
+			return false;
+		}
+		
+		if(isNaN(h)){
+			alert("Pincode should be numbers");
+			return false;
+	}
+		if(isNaN(j)){
+				alert("Pincode should be numbers");
+				return false;
+		}
+		return true;
+		
+		
+	}
+	
+	
+	
+	
+	</script>
+	
+	
+	
+<div id = "Footer"></div>	
+</body>
+</html>
